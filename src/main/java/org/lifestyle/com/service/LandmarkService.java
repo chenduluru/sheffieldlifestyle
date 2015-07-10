@@ -22,85 +22,103 @@ import org.springframework.transaction.annotation.Transactional;
 public class LandmarkService {
 
 	protected static Logger logger = Logger.getLogger("service");
-	
-	@Resource(name="sessionFactory")
+
+	@Resource(name = "sessionFactory")
 	private SessionFactory sessionFactory;
-	
+
 	/**
 	 * Retrieves all Landmarks
 	 * 
 	 * @return a list of Landmarks
 	 */
-	public List<Landmark> getAll() {
+	@SuppressWarnings("unchecked")
+	public List<Landmark> getRandomEntries() {
 		logger.debug("Retrieving all Landmarks");
-		
+
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
-		
+		String hql = "SELECT FROM Landmark";
 		// Create a Hibernate query (HQL)
-		Query query = session.createQuery("FROM  Landmark");
-		
+		Query query = session.createQuery(hql);
+		query.setMaxResults(3);
 		// Retrieve all
-		return  query.list();
+		return query.list();
 	}
-	
+
 	/**
 	 * Retrieves a single Landmark
 	 */
-	public Landmark get( Integer id ) {
+	public Landmark get(Integer id) {
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		// Retrieve existing Landmark first
 		Landmark landmark = (Landmark) session.get(Landmark.class, id);
-		
+
 		return landmark;
 	}
+
+	/**
+	 * Retrieves a single Landmark
+	 */
+	public List<Landmark> getAll() {
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM  Landmark");
+
+		// Retrieve all
+		return query.list();
+	}
+
 	/**
 	 * Adds a new Landmark
 	 */
 	public void add(Landmark landmark) {
 		logger.debug("Adding new Landmark");
-		
+
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		// Save
 		session.save(landmark);
 	}
-	
+
 	/**
 	 * Deletes an existing Landmark
-	 * @param id the id of the existing Landmark
+	 * 
+	 * @param id
+	 *            the id of the existing Landmark
 	 */
 	public void delete(Integer id) {
 		logger.debug("Deleting existing Landmark");
-		
+
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		// Retrieve existing Landmark first
 		Landmark landmark = (Landmark) session.get(Landmark.class, id);
-		
-		// Delete 
+
+		// Delete
 		session.delete(landmark);
 	}
-	
+
 	/**
 	 * Edits an existing person
 	 */
 	public void edit(Landmark landmark) {
 		logger.debug("Editing existing person");
-		
+
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
-		
+
 		// Retrieve existing person via id
-		Landmark existingLandmark = (Landmark) session.get(Landmark.class, landmark.getLandmark_id());
-		
+		Landmark existingLandmark = (Landmark) session.get(Landmark.class,
+				landmark.getLandmark_id());
+
 		// Assign updated values to this person
 		existingLandmark.setName(landmark.getName());
-		
 
 		// Save updates
 		session.save(existingLandmark);
