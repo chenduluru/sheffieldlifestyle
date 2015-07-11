@@ -9,12 +9,13 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.lifestyle.com.domain.Kids;
+import org.lifestyle.com.domain.Landmark;
 import org.lifestyle.com.domain.Person;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Service for processing Persons
+ * Service for processing Kids
  * 
  */
 @Service("kidService")
@@ -42,6 +43,25 @@ public class KidsService {
 		
 		// Retrieve all
 		return  query.list();
+	}
+	
+	/**
+	 * Retrieves 3 random Kids
+	 * 
+	 * @return a list of Kids
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Kids> getRandomEntries() {
+		logger.debug("Retrieving 3 random Kids");
+
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM Kids ORDER BY rand()").setMaxResults(3);
+		
+		// Retrieve all
+		return query.list();
 	}
 	
 	/**

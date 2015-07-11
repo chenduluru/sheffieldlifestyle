@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.lifestyle.com.domain.Landmark;
 import org.lifestyle.com.domain.Nightlife;
 import org.lifestyle.com.domain.Person;
 import org.springframework.stereotype.Service;
@@ -42,6 +43,25 @@ public class NightlifeService {
 		
 		// Retrieve all
 		return  query.list();
+	}
+	
+	/**
+	 * Retrieves all Landmarks
+	 * 
+	 * @return a list of Landmarks
+	 */
+	@SuppressWarnings("unchecked")
+	public List<Nightlife> getRandomEntries() {
+		logger.debug("Retrieving all Nightlife");
+
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM Nightlife ORDER BY rand()").setMaxResults(3);
+		
+		// Retrieve all
+		return query.list();
 	}
 	
 	/**

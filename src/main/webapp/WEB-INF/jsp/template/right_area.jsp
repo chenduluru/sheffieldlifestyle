@@ -6,8 +6,7 @@
 	<!-- left columns -->
 	<%@ include file="homeviews/accommodation_fp_top_list.jsp"%>
 	<div class="clear-both"></div>
-	<%@ include file="homeviews/accommodation_fp_top_list.jsp"%>
-	<%-- <%@ include file="homeviews/business_fp_top_list.jsp"%> --%>
+	<%@ include file="homeviews/landmarks_fp_top_list.jsp"%>
 	<div class="clear-both"></div>
 	
 	

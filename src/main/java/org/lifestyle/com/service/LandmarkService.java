@@ -37,10 +37,10 @@ public class LandmarkService {
 
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "SELECT FROM Landmark";
+		
 		// Create a Hibernate query (HQL)
-		Query query = session.createQuery(hql);
-		query.setMaxResults(3);
+		Query query = session.createQuery("FROM Landmark ORDER BY rand()").setMaxResults(3);
+		
 		// Retrieve all
 		return query.list();
 	}

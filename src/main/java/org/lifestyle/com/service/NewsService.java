@@ -51,13 +51,12 @@ public class NewsService {
 	 * @return a list of News
 	 */
 	public List<News> getLatest() {
-		logger.debug("Retrieving all News");
+		logger.debug("Retrieving Latest News");
 
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();
 		
 		// Create a Hibernate query (HQL)
-		String hql = "SELECT FROM News";
 		Query query = session.createQuery("FROM News ORDER BY rand()").setMaxResults(5);
 		
 		// Retrieve all
