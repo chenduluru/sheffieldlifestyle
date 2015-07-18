@@ -33,7 +33,7 @@ public class LandmarkService {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Landmark> getRandomEntries() {
-		logger.debug("Retrieving all Landmarks");
+		logger.debug("Retrieving 3 random Landmarks");
 
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();

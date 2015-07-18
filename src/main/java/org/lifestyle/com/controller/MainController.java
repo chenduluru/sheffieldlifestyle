@@ -36,12 +36,12 @@ public class MainController {
 	private NewsService newsService;
 	@Resource(name = "landmarkService")
 	private LandmarkService landmarkService;
-	//@Resource(name = "kidsService")
-	//private KidsService kidsService;
-	//@Resource(name = "diningService")
-	//private DiningService diningService;
-	//@Resource(name = "nightlifeService")
-	//private NightlifeService nightlifeService;
+	@Resource(name = "kidsService")
+	private KidsService kidsService;
+	@Resource(name = "diningService")
+	private DiningService diningService;
+	@Resource(name = "nightlifeService")
+	private NightlifeService nightlifeService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String getTest(Model model) {
@@ -50,16 +50,16 @@ public class MainController {
 		model.addAttribute("SECTION", SECTION);
 		model.addAttribute("LEVEL", LEVEL);
 
-		//List<Kids> kids = kidsService.getRandomEntries();
+		List<Kids> kids = kidsService.getRandomEntries();
 		List<News> news = newsService.getLatest();
-		//List<Dining> dining = diningService.getRandomEntries();
+		List<Dining> dining = diningService.getRandomEntries();
 		List<Landmark> landmarks = landmarkService.getRandomEntries();
-		//List<Nightlife> nightlife = nightlifeService.getRandomEntries();
+		List<Nightlife> nightlife = nightlifeService.getRandomEntries();
 
 		model.addAttribute("NEWS", news);
-		//model.addAttribute("KIDS", kids);
-		//model.addAttribute("DINING", dining);
-		//model.addAttribute("NIGHTLIFE", nightlife);
+		model.addAttribute("KIDS", kids);
+		model.addAttribute("DINING", dining);
+		model.addAttribute("NIGHTLIFE", nightlife);
 		model.addAttribute("LANDMARKS", landmarks);
 
 		return "page_structure";

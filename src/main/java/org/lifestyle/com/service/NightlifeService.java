@@ -52,7 +52,7 @@ public class NightlifeService {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Nightlife> getRandomEntries() {
-		logger.debug("Retrieving all Nightlife");
+		logger.debug("Retrieving 3 random Nightlife");
 
 		// Retrieve session from Hibernate
 		Session session = sessionFactory.getCurrentSession();

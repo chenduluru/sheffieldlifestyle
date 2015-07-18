@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Service for processing Kids
  * 
  */
-@Service("kidService")
+@Service("kidsService")
 @Transactional
 public class KidsService {
 

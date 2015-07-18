@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  * Service for processing Dinings
  * 
  */
-@Service("DiningService")
+@Service("diningService")
 @Transactional
 public class DiningService {
 
