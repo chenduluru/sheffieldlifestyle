@@ -58,7 +58,7 @@ public class NightlifeService {
 		Session session = sessionFactory.getCurrentSession();
 		
 		// Create a Hibernate query (HQL)
-		Query query = session.createQuery("FROM Nightlife ORDER BY rand()").setMaxResults(3);
+		Query query = session.createQuery("FROM Nightlife ORDER BY rand()").setMaxResults(3); 
 		
 		// Retrieve all
 		return query.list();
@@ -116,7 +116,7 @@ public class NightlifeService {
 		Session session = sessionFactory.getCurrentSession();
 		
 		// Retrieve existing person via id
-		Nightlife existingNightlife = (Nightlife) session.get(Nightlife.class, nightlife.getNightlife_id());
+		Nightlife existingNightlife = (Nightlife) session.get(Nightlife.class, nightlife.getClub_id());
 		
 		// Assign updated values to this person
 		existingNightlife.setName(nightlife.getName());

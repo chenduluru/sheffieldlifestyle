@@ -1,6 +1,6 @@
 package org.lifestyle.com.domain;
 
-import java.util.Date;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,15 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 @Entity
 @Table(name = "tbl_nightlife")
 public class Nightlife {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int nightlife_id;
+	private Integer club_id;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "largeDescription")
@@ -31,7 +29,7 @@ public class Nightlife {
 	@Column(name = "email")
 	private String email;
 	@Column(name = "rating")
-	private int rating;
+	private BigDecimal rating;
 	@Column(name = "mapx")
 	private String mapx;
 	@Column(name = "mapy")
@@ -41,20 +39,20 @@ public class Nightlife {
 	@Column(name = "opening_times")
 	private String opening_times;
 	@Column(name = "pending_verification")
-	private int pending_verification;
-	@Column(name = "created_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date created_at;
-	@Column(name = "updated_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date updated_at;
+	private Integer pending_verification;
+//	@Column(name = "created_at")
+//	@DateTimeFormat(pattern = "yyyy/MM/dd")
+//	private Date created_at;
+//	@Column(name = "updated_at")
+//	@DateTimeFormat(pattern = "yyyy/MM/dd")
+//	private Date updated_at;
 
-	public int getNightlife_id() {
-		return nightlife_id;
+	public Integer getClub_id() {
+		return club_id;
 	}
 
-	public void setNightlife_id(int nightlife_id) {
-		this.nightlife_id = nightlife_id;
+	public void setClub_id(Integer club_id) {
+		this.club_id = club_id;
 	}
 
 	public String getName() {
@@ -105,11 +103,11 @@ public class Nightlife {
 		this.email = email;
 	}
 
-	public int getRating() {
+	public BigDecimal getRating() {
 		return rating;
 	}
 
-	public void setRating(int rating) {
+	public void setRating(BigDecimal rating) {
 		this.rating = rating;
 	}
 
@@ -156,7 +154,7 @@ public class Nightlife {
 	@Override
     public String toString() {
         return "Nightlife{" +
-                "id=" + nightlife_id +
+                "id=" + club_id +
                 ", name='" + name + '\'' +
                 ", website=" + website +
                 '}';
