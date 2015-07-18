@@ -8,8 +8,10 @@ import org.apache.log4j.Logger;
 import org.lifestyle.com.domain.Dining;
 import org.lifestyle.com.domain.Kids;
 import org.lifestyle.com.domain.Landmark;
+import org.lifestyle.com.domain.Lifestyle;
 import org.lifestyle.com.domain.News;
 import org.lifestyle.com.domain.Nightlife;
+import org.lifestyle.com.service.LifestyleService;
 import org.lifestyle.com.service.LandmarkService;
 import org.lifestyle.com.service.NewsService;
 import org.lifestyle.com.service.DiningService;
@@ -36,6 +38,8 @@ public class MainController {
 	private NewsService newsService;
 	@Resource(name = "landmarkService")
 	private LandmarkService landmarkService;
+	@Resource(name = "lifestyleService")
+	private LifestyleService lifestyleService;
 	@Resource(name = "kidsService")
 	private KidsService kidsService;
 	@Resource(name = "diningService")
@@ -54,6 +58,7 @@ public class MainController {
 		List<News> news = newsService.getLatest();
 		List<Dining> dining = diningService.getRandomEntries();
 		List<Landmark> landmarks = landmarkService.getRandomEntries();
+		Lifestyle lifestyle = lifestyleService.get(25);
 		List<Nightlife> nightlife = nightlifeService.getRandomEntries();
 
 		model.addAttribute("NEWS", news);
@@ -61,6 +66,7 @@ public class MainController {
 		model.addAttribute("DINING", dining);
 		model.addAttribute("NIGHTLIFE", nightlife);
 		model.addAttribute("LANDMARKS", landmarks);
+		model.addAttribute("LIFESTYLE", lifestyle);
 
 		return "page_structure";
 	}
