@@ -1,7 +1,7 @@
 package org.lifestyle.com.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigInteger;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tbl_images")
@@ -23,155 +21,204 @@ public class Image implements Serializable {
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int image_id;
+	private Integer image_id;
+	@Column(name = "image_link")
+	private String imageLink;
 	@Column(name = "name")
 	private String name;
-	@Column(name = "largeDescription")
-	private String largeDescription;
-	@Column(name = "address")
-	private String address;
-	@Column(name = "website")
-	private String website;
-	@Column(name = "phone_no")
-	private String phone_no;
-	@Column(name = "email")
-	private String email;
-	@Column(name = "rating")
-	private int rating;
-	@Column(name = "mapx")
-	private String mapx;
-	@Column(name = "mapy")
-	private String mapy;
-	@Column(name = "price")
-	private String price;
-	@Column(name = "opening_times")
-	private String opening_times;
-	@Column(name = "pending_verification")
-	private int pending_verification;
-	@Column(name = "created_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date created_at;
-	@Column(name = "updated_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date updated_at;
-
-	public int getImage_id() {
+	@Column(name = "ext")
+	private String ext;
+	@Column(name = "width")
+	private BigInteger width;
+	@Column(name = "height")
+	private BigInteger height;
+	@Column(name = "album")
+	private String album;
+	@Column(name = "image_no")
+	private BigInteger imageNo;
+	@Column(name = "category")
+	private String category;
+	@Column(name = "size")
+	private String size;
+	@Column(name = "mime")
+	private String mime; 
+	@Column(name = "image")
+	private String imagePath;
+ 
+	/**
+	 * @return the image_id
+	 */
+	public Integer getImage_id() {
 		return image_id;
 	}
 
-	public void setImage_id(int image_id) {
+	/**
+	 * @param image_id the image_id to set
+	 */
+	public void setImage_id(Integer image_id) {
 		this.image_id = image_id;
 	}
 
+	/**
+	 * @return the imageLink
+	 */
+	public String getImageLink() {
+		return imageLink;
+	}
+
+	/**
+	 * @param imageLink the imageLink to set
+	 */
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
+	}
+
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getLargeDescription() {
-		return largeDescription;
+	/**
+	 * @return the ext
+	 */
+	public String getExt() {
+		return ext;
 	}
 
-	public void setLargeDescription(String largeDescription) {
-		this.largeDescription = largeDescription;
+	/**
+	 * @param ext the ext to set
+	 */
+	public void setExt(String ext) {
+		this.ext = ext;
 	}
 
-	public String getAddress() {
-		return address;
+	/**
+	 * @return the width
+	 */
+	public BigInteger getWidth() {
+		return width;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	/**
+	 * @param width the width to set
+	 */
+	public void setWidth(BigInteger width) {
+		this.width = width;
 	}
 
-	public String getWebsite() {
-		return website;
+	/**
+	 * @return the height
+	 */
+	public BigInteger getHeight() {
+		return height;
 	}
 
-	public void setWebsite(String website) {
-		this.website = website;
+	/**
+	 * @param height the height to set
+	 */
+	public void setHeight(BigInteger height) {
+		this.height = height;
 	}
 
-	public String getPhone_no() {
-		return phone_no;
+	/**
+	 * @return the album
+	 */
+	public String getAlbum() {
+		return album;
 	}
 
-	public void setPhone_no(String phone_no) {
-		this.phone_no = phone_no;
+	/**
+	 * @param album the album to set
+	 */
+	public void setAlbum(String album) {
+		this.album = album;
 	}
 
-	public String getEmail() {
-		return email;
+	/**
+	 * @return the imageNo
+	 */
+	public BigInteger getImageNo() {
+		return imageNo;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	/**
+	 * @param imageNo the imageNo to set
+	 */
+	public void setImageNo(BigInteger imageNo) {
+		this.imageNo = imageNo;
 	}
 
-	public int getRating() {
-		return rating;
+	/**
+	 * @return the category
+	 */
+	public String getCategory() {
+		return category;
 	}
 
-	public void setRating(int rating) {
-		this.rating = rating;
+	/**
+	 * @param category the category to set
+	 */
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
-	public String getMapx() {
-		return mapx;
+	/**
+	 * @return the size
+	 */
+	public String getSize() {
+		return size;
 	}
 
-	public void setMapx(String mapx) {
-		this.mapx = mapx;
+	/**
+	 * @param size the size to set
+	 */
+	public void setSize(String size) {
+		this.size = size;
 	}
 
-	public String getMapy() {
-		return mapy;
+	/**
+	 * @return the mime
+	 */
+	public String getMime() {
+		return mime;
 	}
 
-	public void setMapy(String mapy) {
-		this.mapy = mapy;
+	/**
+	 * @param mime the mime to set
+	 */
+	public void setMime(String mime) {
+		this.mime = mime;
 	}
 
-	public String getPrice() {
-		return price;
+	/**
+	 * @return the imagePath
+	 */
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
-	public String getOpening_times() {
-		return opening_times;
-	}
-
-	public void setOpening_times(String opening_times) {
-		this.opening_times = opening_times;
-	}
-
-	public int getPending_verification() {
-		return pending_verification;
-	}
-
-	public void setPending_verification(int pending_verification) {
-		this.pending_verification = pending_verification;
-	}
-
-	public Object getRandomEntries(int noOfEntries) {
-		// TODO Auto-generated method stub
-		
-		return null;
-	}
+	/**
+	 * @param imagePath the imagePath to set
+	 */
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	} 
 	
 	@Override
     public String toString() {
         return "Landmark{" +
                 "id=" + image_id +
                 ", name='" + name + '\'' +
-                ", website=" + website +
+              //  ", website=" + website +
                 '}';
     }
-
 }

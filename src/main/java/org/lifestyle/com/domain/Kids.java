@@ -1,7 +1,8 @@
 package org.lifestyle.com.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,8 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "tbl_kids")
@@ -23,9 +22,11 @@ public class Kids implements Serializable {
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int kids_id;
+	private int id;
 	@Column(name = "name")
 	private String name;
+	@Column(name = "emirates_id")
+	private BigInteger emiratesId;
 	@Column(name = "largeDescription")
 	private String largeDescription;
 	@Column(name = "address")
@@ -33,145 +34,217 @@ public class Kids implements Serializable {
 	@Column(name = "website")
 	private String website;
 	@Column(name = "phone_no")
-	private String phone_no;
+	private String phoneNo;
 	@Column(name = "email")
 	private String email;
 	@Column(name = "rating")
-	private int rating;
+	private BigInteger rating;
 	@Column(name = "mapx")
 	private String mapx;
 	@Column(name = "mapy")
 	private String mapy;
 	@Column(name = "price")
-	private String price;
+	private BigDecimal price;
 	@Column(name = "opening_times")
-	private Date opening_times;
+	private String openingTimes;
 	@Column(name = "pending_verification")
-	private int pending_verification;
-	@Column(name = "created_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date created_at;
-	@Column(name = "updated_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date updated_at;
-
-	public int getKids_id() {
-		return kids_id;
+	private int pendingVerification;
+//	@Column(name = "created_at")
+//	private Date createdAt; 
+//	@Column(name = "updated_at")
+//	private Date updatedAt;
+	
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
 	}
-
-	public void setKids_id(int id) {
-		this.kids_id = id;
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
-
+	/**
+	 * @return the name
+	 */
 	public String getName() {
 		return name;
 	}
-
+	/**
+	 * @param name the name to set
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	/**
+	 * @return the emiratesId
+	 */
+	public BigInteger getEmiratesId() {
+		return emiratesId;
+	}
+	/**
+	 * @param emiratesId the emiratesId to set
+	 */
+	public void setEmiratesId(BigInteger emiratesId) {
+		this.emiratesId = emiratesId;
+	}
+	/**
+	 * @return the largeDescription
+	 */
 	public String getLargeDescription() {
 		return largeDescription;
 	}
-
+	/**
+	 * @param largeDescription the largeDescription to set
+	 */
 	public void setLargeDescription(String largeDescription) {
 		this.largeDescription = largeDescription;
 	}
-
+	/**
+	 * @return the address
+	 */
 	public String getAddress() {
 		return address;
 	}
-
+	/**
+	 * @param address the address to set
+	 */
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	/**
+	 * @return the website
+	 */
 	public String getWebsite() {
 		return website;
 	}
-
+	/**
+	 * @param website the website to set
+	 */
 	public void setWebsite(String website) {
 		this.website = website;
 	}
-
-	public String getPhone_no() {
-		return phone_no;
+	/**
+	 * @return the phoneNo
+	 */
+	public String getPhoneNo() {
+		return phoneNo;
 	}
-
-	public void setPhone_no(String phone_no) {
-		this.phone_no = phone_no;
+	/**
+	 * @param phoneNo the phoneNo to set
+	 */
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
 	}
-
+	/**
+	 * @return the email
+	 */
 	public String getEmail() {
 		return email;
 	}
-
+	/**
+	 * @param email the email to set
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public int getRating() {
+	/**
+	 * @return the rating
+	 */
+	public BigInteger getRating() {
 		return rating;
 	}
-
-	public void setRating(int rating) {
+	/**
+	 * @param rating the rating to set
+	 */
+	public void setRating(BigInteger rating) {
 		this.rating = rating;
 	}
-
+	/**
+	 * @return the mapx
+	 */
 	public String getMapx() {
 		return mapx;
 	}
-
+	/**
+	 * @param mapx the mapx to set
+	 */
 	public void setMapx(String mapx) {
 		this.mapx = mapx;
 	}
-
+	/**
+	 * @return the mapy
+	 */
 	public String getMapy() {
 		return mapy;
 	}
-
+	/**
+	 * @param mapy the mapy to set
+	 */
 	public void setMapy(String mapy) {
 		this.mapy = mapy;
 	}
-
-	public String getPrice() {
+	/**
+	 * @return the price
+	 */
+	public BigDecimal getPrice() {
 		return price;
 	}
-
-	public void setPrice(String price) {
+	/**
+	 * @param price the price to set
+	 */
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-
-	public Date getOpening_times() {
-		return opening_times;
+	/**
+	 * @return the openingTimes
+	 */
+	public String getOpeningTimes() {
+		return openingTimes;
 	}
-
-	public void setOpening_times(Date opening_times) {
-		this.opening_times = opening_times;
+	/**
+	 * @param openingTimes the openingTimes to set
+	 */
+	public void setOpeningTimes(String openingTimes) {
+		this.openingTimes = openingTimes;
 	}
-
-	public int getPending_verification() {
-		return pending_verification;
+	/**
+	 * @return the pendingVerification
+	 */
+	public int getPendingVerification() {
+		return pendingVerification;
 	}
-
-	public void setPending_verification(int pending_verification) {
-		this.pending_verification = pending_verification;
+	/**
+	 * @param pendingVerification the pendingVerification to set
+	 */
+	public void setPendingVerification(int pendingVerification) {
+		this.pendingVerification = pendingVerification;
 	}
-
-	public Object getRandomEntries(int noOfEntries) {
-		// TODO Auto-generated method stub
-		
-		return null;
-	}
-	
-	@Override
-    public String toString() {
-        return "Kids{" +
-                "id=" + kids_id +
-                ", name='" + name + '\'' +
-                ", website=" + website +
-                '}';
-    }
+//	/**
+//	 * @return the createdAt
+//	 */
+//	public Date getCreatedAt() {
+//		return createdAt;
+//	}
+//	/**
+//	 * @param createdAt the createdAt to set
+//	 */
+//	public void setCreatedAt(Date createdAt) {
+//		this.createdAt = createdAt;
+//	}
+//	/**
+//	 * @return the updatedAt
+//	 */
+//	public Date getUpdatedAt() {
+//		return updatedAt;
+//	}
+//	/**
+//	 * @param updatedAt the updatedAt to set
+//	 */
+//	public void setUpdatedAt(Date updatedAt) {
+//		this.updatedAt = updatedAt;
+//	} 
 
 }

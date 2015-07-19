@@ -116,7 +116,7 @@ public class KidsService {
 		Session session = sessionFactory.getCurrentSession();
 		
 		// Retrieve existing person via id
-		Kids existingKids = (Kids) session.get(Kids.class, kid.getKids_id());
+		Kids existingKids = (Kids) session.get(Kids.class, kid.getId());
 		
 		// Assign updated values to this person
 		existingKids.setName(kid.getName());

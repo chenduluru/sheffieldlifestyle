@@ -8,7 +8,7 @@
 		<div class="news-item">
 			<h3>
 				<c:out value="${news.title}" />
-				<span> &nbsp;-&nbsp; <c:out value="${news.date}" /></span>
+				<span> &nbsp;-&nbsp;</span>
 			</h3>
 			<c:out value="${fn:substring(news.description, 0, 160)}" />
 

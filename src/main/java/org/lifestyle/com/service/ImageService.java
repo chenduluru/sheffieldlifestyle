@@ -45,6 +45,25 @@ public class ImageService {
 	}
 	
 	/**
+	 * Retrieves Image by image_link
+	 * 
+	 * @return a image
+	 */
+	public List<Image> getImageByLink(String imageLink) {
+		logger.debug("Retrieving Image by image link");
+		
+		// Retrieve session from Hibernate
+		Session session = sessionFactory.getCurrentSession();
+		
+		// Create a Hibernate query (HQL)
+		Query query = session.createQuery("FROM  Image image where imageLink=:imageLink");
+		query.setParameter("imageLink",imageLink);
+		
+		// Retrieve all
+		return  query.list();
+	}
+	
+	/**
 	 * Retrieves a single Image
 	 */
 	public Image get( Integer id ) {

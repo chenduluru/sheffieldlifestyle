@@ -48,12 +48,12 @@ public class Landmark implements Serializable {
 	private String opening_times;
 	@Column(name = "pending_verification")
 	private int pending_verification;
-	@Column(name = "created_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date created_at;
-	@Column(name = "updated_at")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date updated_at;
+//	@Column(name = "created_at")
+//	@DateTimeFormat(pattern = "yyyy/MM/dd")
+//	private Date created_at;
+//	@Column(name = "updated_at")
+//	@DateTimeFormat(pattern = "yyyy/MM/dd")
+//	private Date updated_at;
 
 	public int getLandmark_id() {
 		return landmark_id;

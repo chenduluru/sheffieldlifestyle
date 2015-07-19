@@ -6,7 +6,7 @@
 	<div class="title">
 		<h1>
 			<a href="${base}${url_path}" title="View All Landmarks">
-				Landmarks </a>
+				Night Lifes </a>
 		</h1>
 		<a href="" title="View All "> Browse All </a>
 	</div>
@@ -18,7 +18,7 @@
 		<div class="item">
 			<div class="content">
 				<div class="image">
-					<a href="" title="Find Out More About"> <img src=""
+					<a href="" title="Find Out More About"> <img src="${nightlife.imgPath}"
 						alt="Image of " width="80" height="80" />
 					</a>
 				</div>
@@ -29,7 +29,7 @@
 				</h2>
 				<p>
 					<a href="" title="Find Out More About ">
-						<c:out value="${nightlife.largeDescription}" />blah blah blah </a>
+						<c:out value="${nightlife.largeDescription}" /> </a>
 				</p>
 				<div class="clear-both"></div>
 				<div class="button">
@@ -57,10 +57,12 @@
 	<!-- title end -->
 	<div class='error'></div>
 	<!-- item start -->
+	<c:forEach items="${KIDS}" var="kid" >
+	
 	<div class="item">
 		<div class="content">
 			<div class="image">
-				<a href="" title="Find Out More About"> <img src=""
+				<a href="" title="Find Out More About"> <img src="${kid.imgPath}"
 					alt="Image of " width="80" height="80" />
 				</a>
 			</div>
@@ -70,7 +72,7 @@
 				<a href="" title="Find Out More About "></a>
 			</h2>
 			<p>
-				<a href="" title="Find Out More About "><c:out value="${LIFESTYLE.name}" />blah blah blah  </a>
+				<a href="" title="Find Out More About "><c:out value="${kid.name}" /></a>
 			</p>
 			<div class="clear-both"></div>
 			<div class="button">
@@ -80,3 +82,4 @@
 		<div class="clear-both"></div>
 	</div>
 	<!-- item end -->
+	</c:forEach>

@@ -26,9 +26,9 @@ public class News {
 	private String description;
 	@Column(name = "author")
 	private String author;
-	@Column(name = "date")
-	@DateTimeFormat(pattern = "yyyy/MM/dd")
-	private Date date;
+//	@Column(name = "date")
+//	@DateTimeFormat(pattern = "yyyy/MM/dd")
+//	private Date date;
 	
 	public int getNews_id() {
 		return news_id;
@@ -60,12 +60,12 @@ public class News {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
+//	public Date getDate() {
+//		return date;
+//	}
+//	public void setDate(Date date) {
+//		this.date = date;
+//	}
 	
 
 }
