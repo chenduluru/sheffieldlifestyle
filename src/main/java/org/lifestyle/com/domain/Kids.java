@@ -22,11 +22,9 @@ public class Kids implements Serializable {
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	@Column(name = "name")
 	private String name;
-	@Column(name = "emirates_id")
-	private BigInteger emiratesId;
 	@Column(name = "largeDescription")
 	private String largeDescription;
 	@Column(name = "address")
@@ -57,13 +55,13 @@ public class Kids implements Serializable {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	/**
@@ -81,15 +79,7 @@ public class Kids implements Serializable {
 	/**
 	 * @return the emiratesId
 	 */
-	public BigInteger getEmiratesId() {
-		return emiratesId;
-	}
-	/**
-	 * @param emiratesId the emiratesId to set
-	 */
-	public void setEmiratesId(BigInteger emiratesId) {
-		this.emiratesId = emiratesId;
-	}
+	
 	/**
 	 * @return the largeDescription
 	 */
@@ -101,8 +91,7 @@ public class Kids implements Serializable {
 	 */
 	public void setLargeDescription(String largeDescription) {
 		this.largeDescription = largeDescription;
-	}
-	/**
+	}/**
 	 * @return the address
 	 */
 	public String getAddress() {
@@ -222,29 +211,5 @@ public class Kids implements Serializable {
 	public void setPendingVerification(int pendingVerification) {
 		this.pendingVerification = pendingVerification;
 	}
-//	/**
-//	 * @return the createdAt
-//	 */
-//	public Date getCreatedAt() {
-//		return createdAt;
-//	}
-//	/**
-//	 * @param createdAt the createdAt to set
-//	 */
-//	public void setCreatedAt(Date createdAt) {
-//		this.createdAt = createdAt;
-//	}
-//	/**
-//	 * @return the updatedAt
-//	 */
-//	public Date getUpdatedAt() {
-//		return updatedAt;
-//	}
-//	/**
-//	 * @param updatedAt the updatedAt to set
-//	 */
-//	public void setUpdatedAt(Date updatedAt) {
-//		this.updatedAt = updatedAt;
-//	} 
 
 }

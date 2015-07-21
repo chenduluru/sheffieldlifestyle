@@ -1,7 +1,6 @@
 package org.lifestyle.com.domain;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,8 +13,8 @@ import javax.persistence.Table;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "tbl_lifestyle")
-public class Lifestyle implements Serializable {
+@Table(name = "tbl_business")
+public class Business implements Serializable {
 
 	/**
 	 * 
@@ -24,11 +23,13 @@ public class Lifestyle implements Serializable {
 	 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private int businessid;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "largeDescription")
 	private String largeDescription;
+	@Column(name = "smallDescription")
+	private String smallDescription;
 	@Column(name = "address")
 	private String address;
 	@Column(name = "website")
@@ -38,7 +39,7 @@ public class Lifestyle implements Serializable {
 	@Column(name = "email")
 	private String email;
 	@Column(name = "rating")
-	private BigDecimal rating;
+	private Integer rating;
 	@Column(name = "mapx")
 	private String mapx;
 	@Column(name = "mapy")
@@ -49,19 +50,19 @@ public class Lifestyle implements Serializable {
 	private String opening_times;
 	@Column(name = "pending_verification")
 	private int pending_verification;
-//	@Column(name = "created_at")
-//	@DateTimeFormat(pattern = "yyyy/MM/dd")
-//	private Date created_at;
-//	@Column(name = "updated_at")
-//	@DateTimeFormat(pattern = "yyyy/MM/dd")
-//	private Date updated_at;
+	//@Column(name = "created_at")
+	//@DateTimeFormat(pattern = "yyyy/MM/dd")
+	//private Date created_at;
+	//@Column(name = "updated_at")
+	//@DateTimeFormat(pattern = "yyyy/MM/dd")
+	//private Date updated_at;
 
-	public Integer getLifestyle_id() {
-		return id;
+	public int getbusiness_id() {
+		return businessid;
 	}
 
-	public void setLifestyle_id(Integer lifestyle_id) {
-		this.id = lifestyle_id;
+	public void setbusiness_id(int business_id) {
+		this.businessid = business_id;
 	}
 
 	public String getName() {
@@ -112,11 +113,11 @@ public class Lifestyle implements Serializable {
 		this.email = email;
 	}
 
-	public BigDecimal getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
-	public void setRating(BigDecimal rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 
@@ -161,11 +162,10 @@ public class Lifestyle implements Serializable {
 	}
 
 	
-	
 	@Override
     public String toString() {
-        return "Lifestyle{" +
-                "id=" + id +
+        return "Dining{" +
+                "id=" + businessid +
                 ", name='" + name + '\'' +
                 ", website=" + website +
                 '}';

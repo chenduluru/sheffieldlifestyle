@@ -7,12 +7,15 @@ import javax.annotation.Resource;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.log4j.Logger;
+import org.lifestyle.com.domain.Business;
 import org.lifestyle.com.domain.Image;
 import org.lifestyle.com.domain.Kids;
+import org.lifestyle.com.domain.Lifestyle;
 import org.lifestyle.com.domain.News;
 import org.lifestyle.com.domain.Nightlife;
 import org.lifestyle.com.dto.KidsDto;
 import org.lifestyle.com.dto.NightlifeDto;
+import org.lifestyle.com.service.BusinessService;
 import org.lifestyle.com.service.DiningService;
 import org.lifestyle.com.service.ImageService;
 import org.lifestyle.com.service.KidsService;
@@ -37,6 +40,9 @@ public class MainController {
 	protected static String LEVEL = "LEVEL_ONE";
 	protected static int RANDOM_ENTRIES = 3;
 
+	
+	@Resource(name = "businessService")
+	private BusinessService businessService;
 	@Resource(name = "newsService")
 	private NewsService newsService;
 	@Resource(name = "landmarkService")
@@ -78,34 +84,35 @@ public class MainController {
 			kidsDto.setImgPath(imagelist.get(0).getImagePath());
 			kidsDtos.add(kidsDto); 
 		}
-		
 		List<News> news = newsService.getLatest();
-		//List<Dining> dining = diningService.getRandomEntries();
-		//List<Landmark> landmarks = landmarkService.getRandomEntries();
-		//Lifestyle lifestyle = lifestyleService.get(25);
+		List<Business> business = businessService.getRandomEntries();
+		// List<Landmark> landmarks = landmarkService.getRandomEntries();
+		List<Lifestyle> lifestyle = lifestyleService.getRandomEntries();
+
 		List<Nightlife> nightlifeList = nightlifeService.getRandomEntries();
-		
 		for (Nightlife nightlife : nightlifeList) {
 			nlDto = new NightlifeDto();
 			nlDto.setClub_id(nightlife.getClub_id());
 			nlDto.setName(nightlife.getName());
 			nlDto.setEmail(nightlife.getEmail());
 			nlDto.setLargeDescription(nightlife.getLargeDescription());
-			List<Image> imagelist = imageService.getImageByLink(nlDto.getName());
-			if(CollectionUtils.isEmpty(imagelist)){
-				imagelist = imageService.getImageByLink("nightlife_placeholder_80");
+			List<Image> imagelist = imageService
+					.getImageByLink(nlDto.getName());
+			if (CollectionUtils.isEmpty(imagelist)) {
+				imagelist = imageService
+						.getImageByLink("nightlife_placeholder_80");
 			}
 			nlDto.setImgPath(imagelist.get(0).getImagePath());
-			nightlifeDtos.add(nlDto); 
+			nightlifeDtos.add(nlDto);
 		}
-		
+
 		model.addAttribute("NEWS", news);
 		model.addAttribute("KIDS", kidsDtos);
-		//model.addAttribute("DINING", dining);
+		model.addAttribute("BUSINESS", business);
 		model.addAttribute("NIGHTLIFE", nightlifeDtos);
-		//model.addAttribute("LANDMARKS", landmarks);
-		//model.addAttribute("LIFESTYLE", lifestyle); 
-		return "page_structure"; 
+		// model.addAttribute("LANDMARKS", landmarks);
+		model.addAttribute("LIFESTYLE", lifestyle);
+		return "page_structure";
 	}
 
 }
